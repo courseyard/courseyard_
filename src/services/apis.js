@@ -1,4 +1,4 @@
-const BASE_URL='http://localhost:4000/api/v1'
+const BASE_URL = window.location.origin.includes('localhost') ? 'http://localhost:4000/api/v1' : 'https://courseyard.onrender.com/api/v1'
 
 // AUTH ENDPOINTS
 export const endpoints = {
