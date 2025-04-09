@@ -172,7 +172,7 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made with ❤️ CodeHelp © 2023 Courseyard</div>
+          <div className="text-center"> © 2025 Courseyard</div>
         </div>
       </div>
     </div>
