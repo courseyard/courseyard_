@@ -1,5 +1,6 @@
 // Import the Mongoose library
 const mongoose = require("mongoose")
+const RatingAndReview = require("./RatingandReview")
 
 // Define the user schema using the Mongoose Schema constructor
 const userSchema = new mongoose.Schema(
@@ -72,6 +73,15 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 )
+userSchema.pre("remove", async function (next) {
+  try {
+    await RatingAndReview.deleteMany({ user: this._id });
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 // Export the Mongoose model for the user schema, using the name "user"
 module.exports = mongoose.model("user", userSchema)
